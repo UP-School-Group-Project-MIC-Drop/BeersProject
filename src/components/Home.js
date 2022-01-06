@@ -27,9 +27,9 @@ function Home() {
     if(loading) return <h1>Loading...</h1>
 
     return (
+
         <div className='container'>
-            {/* deneme */}
-            <input type="text" />
+            irem sayar'ın denemesi
             <div className="row text-center">
             {
                 data.slice(selectedPage,selectedPage + perPage).map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
