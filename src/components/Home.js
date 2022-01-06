@@ -28,7 +28,8 @@ function Home() {
 
     return (
         <div className='container'>
-            {/* deneme */}
+            {/* deneme12345 */}
+            <label htmlFor="">Cagla deneme</label>
             <input type="text" />
             <div className="row text-center">
             {
