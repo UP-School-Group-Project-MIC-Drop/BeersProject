@@ -28,6 +28,7 @@ function Home() {
 
     return (
         <div className='container'>
+            deneme deneme 
             {/* deneme */}
             <input type="text" />
             <div className="row text-center">
