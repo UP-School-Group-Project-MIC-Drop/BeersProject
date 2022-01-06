@@ -28,12 +28,9 @@ function Home() {
 
     return (
         <div className='container'>
-<<<<<<< HEAD
-<input type="text" />
-=======
+
             {/* deneme */}
             <input type="text" />
->>>>>>> 9fc94382971d47241741d520b9a9d34ba5df4cc7
             <div className="row text-center">
             {
                 data.slice(selectedPage,selectedPage + perPage).map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
