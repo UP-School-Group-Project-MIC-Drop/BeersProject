@@ -20,7 +20,7 @@ function Home() {
                 setPageCount(Math.ceil(data.length/perPage))
             });
     }, [])
-
+// deneme
     function handlePageClick(e) {
         setSelectedPage(e.selected*perPage)
     }
