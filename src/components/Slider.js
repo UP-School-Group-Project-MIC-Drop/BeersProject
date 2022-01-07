@@ -8,7 +8,7 @@ function Slider(props) {
 
     
     const {isChecked, srmValue, setSrmValue} = useContext(CheckboxSliderContext)
-    const {setSelectedPage, perPage} = useContext(PaginationContext)
+    const {setSelectedPage} = useContext(PaginationContext)
 
 
     return (
@@ -21,7 +21,8 @@ function Slider(props) {
                 value={srmValue} 
                 onChange={(value) => {
                     setSrmValue(value)
-                    setSelectedPage(0)}} />
+                    setSelectedPage(0)
+                    }} />
         </div>
     )
 }

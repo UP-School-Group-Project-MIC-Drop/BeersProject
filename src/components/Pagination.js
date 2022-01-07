@@ -7,7 +7,6 @@ function Pagination(props) {
     const {data, loading, pageCount, setPageCount, selectedPage, perPage, handlePageClick} = useContext(PaginationContext)
     const {srmValue} = useContext(CheckboxSliderContext)
 
-
     const filteredData = data.filter(item => item.srm >= srmValue)
                                 .map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
                                                 <div className="card my-3 border rounded border-4 border-warning py-2 bg-light">
@@ -48,6 +47,7 @@ function Pagination(props) {
                 disabledLinkClassName={"text-muted"}
                 pageLinkClassName={"text-decoration-none mx-1 btn btn-outline-secondary"}
                 activeLinkClassName={"fw-bold btn-outline-warning"}
+                forcePage={selectedPage/perPage}
             />
         </div>
     </>
