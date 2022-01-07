@@ -1,8 +1,10 @@
 import React, {useEffect, useContext} from 'react'
-import "../App.css"
 import Pagination from './Pagination'
+import Checkbox from './Checkbox'
+import Slider from './Slider'
 import { PaginationContext } from '../context/PaginationContext'
-
+import { CheckboxSliderContextProvider } from '../context/CheckboxSliderContext'
+import "../App.css"
 
 function Home() {
     //context
@@ -21,7 +23,22 @@ function Home() {
 
 
     return (
-        <Pagination />
+        <div className='container'>
+            <CheckboxSliderContextProvider>
+                <div>
+                <Checkbox />
+                {/* range-slider olacak */}
+                <Slider name="PH" />
+                </div>
+            </CheckboxSliderContextProvider>
+            <CheckboxSliderContextProvider>
+                <div>
+                <Checkbox />
+                <Slider name="SRM" />
+                </div>
+            </CheckboxSliderContextProvider>
+            <Pagination />
+        </div>
     )
 }
 
