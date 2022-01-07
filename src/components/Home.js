@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useContext} from 'react'
 import "../App.css"
 import Pagination from './Pagination'
+import { PaginationContext } from '../context/PaginationContext'
+
 
 function Home() {
-    //states for pagination
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-    const perPage = 6
-    const [pageCount, setPageCount] = useState(0)
-    const [selectedPage, setSelectedPage] = useState(0)
+    //context
+    const {setData, setLoading, setPageCount, perPage} = useContext(PaginationContext)
 
     //fetch api for pagination
     useEffect(() => {
@@ -19,11 +17,11 @@ function Home() {
                 setLoading(false)
                 setPageCount(Math.ceil(data.length/perPage))
             });
-    }, [])
+    }, [perPage, setData, setLoading, setPageCount])
 
 
     return (
-        <Pagination data={data} loading={loading} pageCount={pageCount} selectedPage={selectedPage} setSelectedPage={setSelectedPage} perPage={perPage} />
+        <Pagination />
     )
 }
 
