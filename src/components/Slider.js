@@ -14,6 +14,8 @@ function Slider(props) {
     return (
         <div className='col-8 text-light ms-3'>
             <SliderComponent 
+                railStyle={{ backgroundColor: 'orange'}}
+                trackStyle={{ backgroundColor: 'orange'}}
                 disabled={isChecked} 
                 value={srmValue} 
                 onChange={(value) => {

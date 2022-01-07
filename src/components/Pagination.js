@@ -10,7 +10,7 @@ function Pagination(props) {
 
     const filteredData = data.filter(item => item.srm >= srmValue)
                                 .map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
-                                                <div className="card my-3 border border-warning py-2 h-">
+                                                <div className="card my-3 border rounded border-4 border-warning py-2 bg-light">
                                                     <img src={item.image_url} className="card-img-top card-img-size" alt="..."/>
                                                     <div className="card-body ">
                                                     <h5 className="card-title">{item.name}</h5>

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {CheckboxSliderContext} from '../context/CheckboxSliderContext'
+import "../App.css"
 
 function Checkbox(props) {
     
@@ -7,7 +8,7 @@ function Checkbox(props) {
 
     return (
         <div className='col-2'>
-            <input class="form-check-input border border-warning" type="checkbox" value="" id="flexCheckDefault" 
+            <input class={`form-check-input border border-warning ${ !isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault" 
             onClick={() => {
                 setIsChecked(!isChecked)
                 setSrmValue(0)}} ></input>
