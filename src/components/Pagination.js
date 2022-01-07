@@ -1,13 +1,27 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
+import { CheckboxSliderContext } from '../context/CheckboxSliderContext'
 import {PaginationContext} from "../context/PaginationContext"
 
 function Pagination(props) {
+    const {data, loading, pageCount, setPageCount, selectedPage, perPage, handlePageClick} = useContext(PaginationContext)
+    const {srmValue} = useContext(CheckboxSliderContext)
 
-    // const {data, loading, pageCount, selectedPage, setSelectedPage, perPage} = props
 
-    const {data, loading, pageCount, selectedPage, perPage, handlePageClick} = useContext(PaginationContext)
-
+    const filteredData = data.filter(item => item.srm >= srmValue)
+                                .map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
+                                                <div className="card my-3 border border-warning py-2 h-">
+                                                    <img src={item.image_url} className="card-img-top card-img-size" alt="..."/>
+                                                    <div className="card-body ">
+                                                    <h5 className="card-title">{item.name}</h5>
+                                                    <p className="card-text">First Brewed In: {item.first_brewed}</p>
+                                                    </div>
+                                                </div>
+                                            </div> )
+    
+    useEffect(() => {
+        setPageCount(Math.ceil(filteredData.length/perPage))
+    }, [filteredData, perPage, setPageCount])
     
     if(loading) return <h1>Loading...</h1>
 
@@ -16,15 +30,7 @@ function Pagination(props) {
         <div className='container'>
             <div className="row text-center">
             {
-                data.slice(selectedPage,selectedPage + perPage).map(item => <div  key={item.id} className="col-lg-4 col-sm-6 card-group">
-                    <div className="card my-3 border border-warning py-2 h-">
-                    <img src={item.image_url} className="card-img-top card-img-size" alt="..."/>
-                    <div className="card-body ">
-                    <h5 className="card-title">{item.name}</h5>
-                    <p className="card-text">First Brewed In: {item.first_brewed}</p>
-                    </div>
-                </div>
-                </div> )
+                filteredData.slice(selectedPage,selectedPage + perPage)
             }
             </div>
             

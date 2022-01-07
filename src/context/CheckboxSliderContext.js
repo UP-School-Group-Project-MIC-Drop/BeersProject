@@ -5,10 +5,11 @@ const CheckboxSliderContext = createContext();
 
 function CheckboxSliderContextProvider(props) {
 
-    const [isChecked, setIsChecked] = useState(false)
+    const [isChecked, setIsChecked] = useState(true)
+    const [srmValue, setSrmValue] = useState(0)
 
     return (
-        <CheckboxSliderContext.Provider value={{isChecked, setIsChecked}}>
+        <CheckboxSliderContext.Provider value={{isChecked, setIsChecked, srmValue, setSrmValue}}>
             {props.children}
         </CheckboxSliderContext.Provider>
     )
