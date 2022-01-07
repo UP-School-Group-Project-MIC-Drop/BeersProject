@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const PaginationContext = createContext();
 
@@ -13,6 +13,7 @@ function PaginationContextProvider(props) {
     function handlePageClick(e) {
         setSelectedPage(e.selected*perPage)
     }
+
 
     return (
         <PaginationContext.Provider value={{data, setData, loading, setLoading, pageCount, setPageCount, selectedPage, setSelectedPage, perPage, handlePageClick}}>
