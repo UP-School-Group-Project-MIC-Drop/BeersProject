@@ -7,9 +7,7 @@ function App() {
   return (
     
     <PaginationContextProvider>
-    <div>
       <Home />
-    </div>
     </PaginationContextProvider>
     
   );

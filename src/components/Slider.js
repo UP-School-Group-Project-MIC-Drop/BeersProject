@@ -8,7 +8,7 @@ function Slider(props) {
 
     
     const {isChecked, srmValue, setSrmValue} = useContext(CheckboxSliderContext)
-    const {setSelectedPage} = useContext(PaginationContext)
+    const {setSelectedPage, perPage} = useContext(PaginationContext)
 
 
     return (
@@ -16,6 +16,7 @@ function Slider(props) {
             <SliderComponent 
                 railStyle={{ backgroundColor: 'orange'}}
                 trackStyle={{ backgroundColor: 'orange'}}
+                handleStyle={{ backgroundColor: 'orange', borderColor: "white"}}
                 disabled={isChecked} 
                 value={srmValue} 
                 onChange={(value) => {

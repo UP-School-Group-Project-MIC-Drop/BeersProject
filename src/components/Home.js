@@ -25,7 +25,7 @@ function Home() {
     return (
         <div className='container'>
             <CheckboxSliderContextProvider>
-                <div className='row d-flex align-items-center'>
+                <div className='row d-flex align-items-center mx-auto'>
                     <Checkbox name="SRM" />
                     <Slider />
                 </div>
