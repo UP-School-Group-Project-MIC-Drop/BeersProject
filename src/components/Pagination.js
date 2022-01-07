@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import ReactPaginate from 'react-paginate'
+import {PaginationContext} from "../context/PaginationContext"
 
 function Pagination(props) {
 
-    const {data, loading, pageCount, selectedPage, setSelectedPage, perPage} = props
+    // const {data, loading, pageCount, selectedPage, setSelectedPage, perPage} = props
 
-    function handlePageClick(e) {
-        setSelectedPage(e.selected*perPage)
-    }
+    const {data, loading, pageCount, selectedPage, perPage, handlePageClick} = useContext(PaginationContext)
+
+    
     if(loading) return <h1>Loading...</h1>
 
     return (
