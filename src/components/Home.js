@@ -25,19 +25,12 @@ function Home() {
     return (
         <div className='container'>
             <CheckboxSliderContextProvider>
-                <div>
-                <Checkbox />
-                {/* range-slider olacak */}
-                <Slider name="PH" />
+                <div className='row d-flex align-items-center'>
+                    <Checkbox name="SRM" />
+                    <Slider />
                 </div>
-            </CheckboxSliderContextProvider>
-            <CheckboxSliderContextProvider>
-                <div>
-                <Checkbox />
-                <Slider name="SRM" />
-                </div>
-            </CheckboxSliderContextProvider>
             <Pagination />
+            </CheckboxSliderContextProvider>
         </div>
     )
 }
