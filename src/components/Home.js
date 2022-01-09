@@ -2,17 +2,21 @@ import React, {useEffect, useContext} from 'react'
 import Pagination from './Pagination'
 import Checkbox from './Checkbox'
 import Slider from './Slider'
+import AlcoholSlider from './AlcoholSlider'
+
 import { PaginationContext } from '../context/PaginationContext'
 import { CheckboxSliderContextProvider } from '../context/CheckboxSliderContext'
+import { AlcoholSliderContextProvider } from '../context/AlcoholSliderContext'
 import "../App.css"
 
 function Home() {
     //context
     const {setData, setLoading, setPageCount, perPage} = useContext(PaginationContext)
+    const URL = 'https://api.punkapi.com/v2/beers?page=1&per_page=60'
 
     //fetch api for pagination
     useEffect(() => {
-        fetch("https://api.punkapi.com/v2/beers?page=1&per_page=60")
+        fetch(URL)
             .then(response => response.json())
             .then(data => {
                 setData(data)
@@ -24,6 +28,10 @@ function Home() {
 
     return (
         <div className='container'>
+            <AlcoholSliderContextProvider>
+            <AlcoholSlider URL={URL}/>
+            </AlcoholSliderContextProvider>
+            
             <CheckboxSliderContextProvider>
                 <div className='row d-flex align-items-center mx-auto'>
                     <Checkbox name="SRM" />

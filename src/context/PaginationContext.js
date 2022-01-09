@@ -14,7 +14,6 @@ function PaginationContextProvider(props) {
         setSelectedPage(e.selected*perPage)
     }
 
-
     return (
         <PaginationContext.Provider value={{data, setData, loading, setLoading, pageCount, setPageCount, selectedPage, setSelectedPage, perPage, handlePageClick}}>
             {props.children}
