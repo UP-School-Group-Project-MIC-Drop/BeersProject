@@ -31,6 +31,10 @@ function Pagination(props) {
             {
                 filteredData.slice(selectedPage,selectedPage + perPage)
             }
+            {
+                
+                filteredData.length === 0 && <div className='alert alert-secondary fw-bold fs-3 col-6 mx-auto text-center py-5 mt-5' role="alert">No results found!</div>
+            }
             </div>
             
            
