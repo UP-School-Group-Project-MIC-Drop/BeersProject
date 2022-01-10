@@ -8,7 +8,7 @@ function Checkbox(props) {
 
     return (
         <>
-            <input className={`form-check-input border border-warning fs-3 ${ !isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault" 
+            <input className={`form-check-input border-3 border-warning fs-3 ${ !isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault" 
             onClick={() => {
                 setIsChecked(!isChecked)
                 setSrmValue(0)}} ></input>
