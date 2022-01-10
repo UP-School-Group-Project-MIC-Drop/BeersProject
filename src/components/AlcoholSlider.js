@@ -11,7 +11,7 @@ function AlcoholSlider(props) {
     const URL = props.URL
     const [url, setUrl] = useState(URL)
 
-    const {setData} = useContext(PaginationContext)
+    const {setData, setSelectedPage} = useContext(PaginationContext)
 
 
     const {value,setValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
@@ -34,6 +34,8 @@ function AlcoholSlider(props) {
     const sliderHandler = (val) => {
         setValue(val);
         setUrl(`${URL}${filter}${value}`)
+        setSelectedPage(0)
+
         console.log("URL",URL);
         console.log("url",url);
         console.log("value",value);
@@ -81,7 +83,7 @@ function AlcoholSlider(props) {
                 <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-2">
                     <div className='text-light fs-2'>Alcohol by volume <TiBeer /> </div>
                 </div>
-                <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-sm-3 mt-md-0">
+                <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-3 mt-md-0">
 
                     <div className="btn-group btn-group-lg mx-1 " role="group" aria-label="Basic outlined example">
                         <button type="button" className={`btn ${ display === "passive" ? "btn-warning" : "btn-outline-warning"}`}

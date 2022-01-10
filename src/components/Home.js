@@ -37,19 +37,19 @@ function Home() {
             </AlcoholSliderContextProvider>
             
             <CheckboxSliderContextProvider>
-            <div className='row d-flex align-items-center mx-auto my-4'>
-                    <div className="col-md-3 d-flex justify-content-center">
+                <div className='row d-flex align-items-center mx-auto my-5'>
+                    <div className="col-lg-2 col-md-3 col-sm-4 col-6 d-flex ps-4 ">
                         <Checkbox name="pH" />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-lg-10 col-md-9 col-sm-8 col-6">
                         <PhSlider />
                     </div>
                 </div>
-                <div className='row d-flex align-items-center mx-auto my-4'>
-                    <div className="col-md-3 d-flex justify-content-center">
+                <div className='row d-flex align-items-center mx-auto my-5'>
+                    <div className="col-lg-2 col-md-3 col-sm-4 col-6 d-flex ps-4 ">
                         <Checkbox name="SRM"/>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-lg-10 col-md-9 col-sm-8 col-6">
                         <SrmSlider />
                     </div>
                 </div>

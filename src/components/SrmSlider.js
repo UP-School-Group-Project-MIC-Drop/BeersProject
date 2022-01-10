@@ -32,7 +32,7 @@ function SrmSlider(props) {
                 marks={{
                         0: `0`,
                         100: `100`
-                      }}
+                      }} 
                 />
     )
 }
