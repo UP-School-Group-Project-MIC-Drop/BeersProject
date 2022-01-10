@@ -9,7 +9,7 @@ const SliderComponent = createSliderWithTooltip(Slider);
 function SrmSlider(props) {
 
     
-    const {isChecked, srmValue, setSrmValue} = useContext(CheckboxSliderContext)
+    const {isSrmChecked, srmValue, setSrmValue} = useContext(CheckboxSliderContext)
     const {setSelectedPage} = useContext(PaginationContext)
 
 
@@ -18,7 +18,7 @@ function SrmSlider(props) {
                 railStyle={{ backgroundColor: 'orange'}}
                 trackStyle={{ backgroundColor: 'orange'}}
                 handleStyle={{ backgroundColor: 'orange', borderColor: "white"}}
-                disabled={isChecked} 
+                disabled={isSrmChecked} 
                 value={srmValue} 
                 onChange={(value) => {
                     setSrmValue(value)
