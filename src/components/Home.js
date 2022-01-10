@@ -1,13 +1,13 @@
 import React, {useEffect, useContext} from 'react'
 import Pagination from './Pagination'
 import Checkbox from './Checkbox'
-import Slider from './Slider'
+import SrmSlider from './SrmSlider'
 import AlcoholSlider from './AlcoholSlider'
 
 import { PaginationContext } from '../context/PaginationContext'
 import { CheckboxSliderContextProvider } from '../context/CheckboxSliderContext'
 import { AlcoholSliderContextProvider } from '../context/AlcoholSliderContext'
-import "../App.css"
+
 
 function Home() {
     //context
@@ -29,13 +29,17 @@ function Home() {
     return (
         <div className='container'>
             <AlcoholSliderContextProvider>
-            <AlcoholSlider URL={URL}/>
+                <AlcoholSlider URL={URL}/>
             </AlcoholSliderContextProvider>
             
             <CheckboxSliderContextProvider>
-                <div className='row d-flex align-items-center mx-auto'>
-                    <Checkbox name="SRM" />
-                    <Slider />
+                <div className='row d-flex align-items-center mx-auto my-4'>
+                    <div className="col-md-3 d-flex justify-content-center">
+                        <Checkbox name="SRM" />
+                    </div>
+                    <div className="col-md-9">
+                        <SrmSlider />
+                    </div>
                 </div>
             <Pagination />
             </CheckboxSliderContextProvider>

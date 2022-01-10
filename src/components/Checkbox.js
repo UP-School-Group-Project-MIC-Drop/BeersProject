@@ -7,13 +7,13 @@ function Checkbox(props) {
     const {isChecked, setIsChecked, setSrmValue} = useContext(CheckboxSliderContext)
 
     return (
-        <div className='col-2'>
-            <input className={`form-check-input border border-warning ${ !isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault" 
+        <>
+            <input className={`form-check-input border border-warning fs-3 ${ !isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault" 
             onClick={() => {
                 setIsChecked(!isChecked)
                 setSrmValue(0)}} ></input>
-            <label className='ms-3 text-light' htmlFor="">{props.name}</label>
-        </div>
+            <label className='ms-3 text-light fs-3' htmlFor="">{props.name}</label>
+        </>
     )
 }
 
