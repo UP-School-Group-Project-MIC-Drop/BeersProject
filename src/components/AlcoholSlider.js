@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import 'rc-slider/assets/index.css';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import { TiBeer } from "react-icons/ti";
@@ -8,68 +8,14 @@ import { PaginationContext } from '../context/PaginationContext';
 const SliderComponent = createSliderWithTooltip(Slider);
 
 function AlcoholSlider(props) {
-    const URL = props.URL
-    const [url, setUrl] = useState(URL)
-    const [error, setError] = useState(null);
+    const {loading} = useContext(PaginationContext)
 
-    const {setData, setSelectedPage, loading, setLoading} = useContext(PaginationContext)
-
-
-    const {alcoholValue,setAlcoholValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
+    const {alcoholValue,display, isActiveGt, isActiveLt, error, sliderHandler, lowerHandler, greaterHandler, noneHandler} = useContext(AlcoholSliderContext)
     console.log("alcoholValue",alcoholValue);
 
     
-    const greaterHandler = () => {
-        setIsActiveGt(true)
-        setIsActiveLt(false)
-        setDisplay("active")
-        setFilter("&abv_gt=")
-    }
-    const lowerHandler = () => {
-        setIsActiveLt(true)
-        setIsActiveGt(false)
-        setDisplay("active")
-        setFilter("&abv_lt=")
-    }
-
-    const sliderHandler = (val) => {
-        setAlcoholValue(val);
-        setSelectedPage(0)
-
-        console.log("url",url);
-        console.log("value",alcoholValue);
-    }
-
-    const noneHandler = () => {
-        setDisplay("passive")
-        setUrl(`${URL}`)
-        setIsActiveGt(false)
-        setIsActiveLt(false)
-    }
-
-
-    useEffect(() => {
-        setUrl(`${URL}${filter}${alcoholValue}`)
-        fetch(url)
-            .then(resp => resp.json()
-            )
-            .then((data) => {
-                setData(data);
-                console.log(data);
-                console.log("url in fetch",url)
-            })
-            .catch((error) => {
-                console.error("Error fetching data: ", error);
-                setError(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [URL ,url , alcoholValue, filter, setData, setLoading]);
-
     if (loading) return "Loading...";
     if (error) return "Error!";
-
 
 
     return (
@@ -101,7 +47,7 @@ function AlcoholSlider(props) {
                         railStyle={{ backgroundColor: 'orange'}}
                         trackStyle={{ backgroundColor: 'orange'}}
                         handleStyle={{ backgroundColor: 'orange', borderColor: "white"}}
-                        value={alcoholValue}
+                        value={display === "passive" ? 0 : alcoholValue}
                         onChange={sliderHandler} className='mt-4' disabled={display === "passive"}
                         tipFormatter={value => `${value}`}
                         step={0.1}
@@ -116,20 +62,6 @@ function AlcoholSlider(props) {
                     />
                 </div>
             </div>
-            {/* <div className={`row mt-5`}>
-                {
-                    data.map((item, index) =>
-                        <div key={index} className="col-lg-4 col-sm-6 card-group">
-                            <div className="card my-3 bg-warning border border-warning py-2">
-                                <img src={item.image_url} className="card-img-top card-img-size" alt="..." />
-                                <div className="card-body ">
-                                    <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">First Brewed In: {item.first_brewed}</p>
-                                </div>
-                            </div>
-                        </div>)
-                }
-            </div> */}
         </div>
     )
 }
