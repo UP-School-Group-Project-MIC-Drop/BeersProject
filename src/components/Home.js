@@ -30,13 +30,13 @@ function Home() {
 
     return (
         <div className='container'>
+            <AlcoholSliderContextProvider>
+            <CheckboxSliderContextProvider>
             <SearchContextProvider>
                 <SearchBeer />
-            <AlcoholSliderContextProvider>
                 <AlcoholSlider URL={URL}/>
-            </AlcoholSliderContextProvider>
+    
             
-            <CheckboxSliderContextProvider>
                 <div className='row d-flex align-items-center mx-auto my-5'>
                     <div className="col-lg-2 col-md-3 col-sm-4 col-6 d-flex ps-4 ">
                         <Checkbox name="pH" />
@@ -54,8 +54,10 @@ function Home() {
                     </div>
                 </div>
             <Pagination />
-            </CheckboxSliderContextProvider>
+           
             </SearchContextProvider>
+            </CheckboxSliderContextProvider>
+            </AlcoholSliderContextProvider>
         </div>
     )
 }

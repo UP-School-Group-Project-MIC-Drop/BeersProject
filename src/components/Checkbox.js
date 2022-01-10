@@ -10,7 +10,7 @@ function Checkbox(props) {
 
     return (
         <>
-            <input className={`form-check-input border-3 border-warning fs-3 ${!isChecked && "bg-warning"}`} type="checkbox" id="flexCheckDefault"
+            <input className={`form-check-input border-3 border-warning fs-3 ${!isChecked ? "bg-warning": "bg-dark"}`} checked={!isChecked} type="checkbox" id="flexCheckDefault"
                 onClick={() => {
                     setIsChecked(!isChecked)
                     props.name === "SRM" ? setSrmValue(0) : setPhValue([0,7])
