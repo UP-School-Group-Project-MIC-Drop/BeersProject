@@ -12,6 +12,7 @@ function SearchContextProvider(props) {
     const {setIsPhChecked, setIsSrmChecked, setSrmValue, setPhValue, isPhChecked, isSrmChecked} = useContext(CheckboxSliderContext)
 
     function resetHandler() {
+        document.getElementById("search").value=""
         setSearchValue("")
         noneHandler()
         setAlcoholValue(0)
@@ -21,12 +22,10 @@ function SearchContextProvider(props) {
         setPhValue([0,7])
     }
 
-    function formHandler(event) {
-        setSearchValue(event.target.value)
-    }
+  
 
     return (
-        <SearchContext.Provider value={{searchValue, formHandler, resetHandler}}>
+        <SearchContext.Provider value={{searchValue, resetHandler,setSearchValue}}>
             {props.children}
         </SearchContext.Provider>
     )
