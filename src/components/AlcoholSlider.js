@@ -13,14 +13,18 @@ function AlcoholSlider(props) {
 
     const {setData} = useContext(PaginationContext)
 
-    const {value,setValue,filter,setFilter,display,setDisplay} = useContext(AlcoholSliderContext)
+    const {value,setValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
     console.log(value);
     
     const greaterHandler = () => {
+        setIsActiveGt(true)
+        setIsActiveLt(false)
         setDisplay("active")
         setFilter("&abv_gt=")
     }
     const lowerHandler = () => {
+        setIsActiveLt(true)
+        setIsActiveGt(false)
         setDisplay("active")
         setFilter("&abv_lt=")
     }
@@ -35,6 +39,8 @@ function AlcoholSlider(props) {
     const noneHandler = () => {
         setDisplay("passive")
         setUrl(`${URL}`)
+        setIsActiveGt(false)
+        setIsActiveLt(false)
     }
 
     const [loading, setLoading] = useState(true);
@@ -75,16 +81,16 @@ function AlcoholSlider(props) {
                 <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-sm-3 mt-md-0">
 
                     <div className="btn-group btn-group-lg mx-1 " role="group" aria-label="Basic outlined example">
-                        <button type="button" className="btn btn-outline-warning"
+                        <button type="button" className={`btn ${ display === "passive" ? "btn-warning" : "btn-outline-warning"}`}
                         onClick={noneHandler}
                         > None
                         </button>
-                        <button type="button" className="btn btn-outline-warning"
+                        <button type="button" className={`btn ${ isActiveGt ? "btn-warning" : "btn-outline-warning"}`}
                             onClick={greaterHandler}
                         >
                             Greater Than
                         </button>
-                        <button type="button" className="btn btn-outline-warning"
+                        <button type="button" className={`btn ${ isActiveLt ? "btn-warning" : "btn-outline-warning"}`}
                             onClick={lowerHandler}>
                             Lower Than
                         </button>
