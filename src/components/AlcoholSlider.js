@@ -8,8 +8,6 @@ import { PaginationContext } from '../context/PaginationContext';
 const SliderComponent = createSliderWithTooltip(Slider);
 
 function AlcoholSlider(props) {
-    //const SliderWithTooltip = createSliderWithTooltip(Slider);
-    
     const URL = props.URL
     const [url, setUrl] = useState(URL)
 
@@ -61,7 +59,7 @@ function AlcoholSlider(props) {
             .finally(() => {
                 setLoading(false);
             });
-    }, [url]);
+    }, [url, value, filter]);
 
     if (loading) return "Loading...";
     if (error) return "Error!";
@@ -71,10 +69,10 @@ function AlcoholSlider(props) {
     return (
         <div className='container'>
             <div className="row mt-5 d-flex align-items-center ">
-                <div className="col-md-4 d-flex justify-content-center mt-2">
+                <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-2">
                     <div className='text-light fs-2'>Alcohol by volume <TiBeer /> </div>
                 </div>
-                <div className="col-md-4 d-flex">
+                <div className="col-lg-4 col-md-6 d-flex justify-content-center mt-sm-3 mt-md-0">
 
                     <div className="btn-group btn-group-lg mx-1 " role="group" aria-label="Basic outlined example">
                         <button type="button" className="btn btn-outline-warning"
@@ -92,7 +90,7 @@ function AlcoholSlider(props) {
                         </button>
                     </div>
                 </div>
-                <div className={`col-md-4`}>
+                <div className={`col-lg-4 col-md`}>
                     <SliderComponent
                         railStyle={{ backgroundColor: 'orange'}}
                         trackStyle={{ backgroundColor: 'orange'}}
@@ -103,6 +101,10 @@ function AlcoholSlider(props) {
                             placement: "top",
                             visible: true
                         }}
+                        marks={{
+                            0: `0`,
+                            100: `100`
+                          }}
                     />
                 </div>
             </div>
@@ -121,11 +123,6 @@ function AlcoholSlider(props) {
                 }
             </div> */}
         </div>
-
-
-
-
-
     )
 }
 export default AlcoholSlider
