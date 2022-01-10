@@ -13,8 +13,10 @@ function AlcoholSlider(props) {
 
     const {setData} = useContext(PaginationContext)
 
+
     const {value,setValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
     console.log(value);
+
     
     const greaterHandler = () => {
         setIsActiveGt(true)
@@ -29,11 +31,12 @@ function AlcoholSlider(props) {
         setFilter("&abv_lt=")
     }
 
-    const sliderHandler = (e) => {
-        
-        setValue(e);
+    const sliderHandler = (val) => {
+        setValue(val);
         setUrl(`${URL}${filter}${value}`)
-        console.log(url);
+        console.log("URL",URL);
+        console.log("url",url);
+        console.log("value",value);
     }
 
     const noneHandler = () => {
@@ -65,7 +68,7 @@ function AlcoholSlider(props) {
             .finally(() => {
                 setLoading(false);
             });
-    }, [url, value, filter]);
+    }, [url, value, filter, setData]);
 
     if (loading) return "Loading...";
     if (error) return "Error!";
