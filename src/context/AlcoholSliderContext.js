@@ -5,7 +5,7 @@ const AlcoholSliderContext = createContext();
 
 function AlcoholSliderContextProvider(props) {
 
-    const [value, setValue] = useState(0);
+    const [alcoholValue, setAlcoholValue] = useState(0);
     const [filter, setFilter] = useState("")
     const [display, setDisplay] = useState("passive")
     const [isActiveGt, setIsActiveGt] = useState(false)
@@ -13,7 +13,7 @@ function AlcoholSliderContextProvider(props) {
 
     
     return (
-        <AlcoholSliderContext.Provider value={{value,setValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt}}>
+        <AlcoholSliderContext.Provider value={{alcoholValue,setAlcoholValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt}}>
             {props.children}
         </AlcoholSliderContext.Provider>
     )

@@ -10,12 +10,13 @@ const SliderComponent = createSliderWithTooltip(Slider);
 function AlcoholSlider(props) {
     const URL = props.URL
     const [url, setUrl] = useState(URL)
+    const [error, setError] = useState(null);
 
-    const {setData, setSelectedPage} = useContext(PaginationContext)
+    const {setData, setSelectedPage, loading, setLoading} = useContext(PaginationContext)
 
 
-    const {value,setValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
-    console.log(value);
+    const {alcoholValue,setAlcoholValue,filter,setFilter,display,setDisplay, isActiveGt, setIsActiveGt, isActiveLt, setIsActiveLt} = useContext(AlcoholSliderContext)
+    console.log("alcoholValue",alcoholValue);
 
     
     const greaterHandler = () => {
@@ -32,13 +33,11 @@ function AlcoholSlider(props) {
     }
 
     const sliderHandler = (val) => {
-        setValue(val);
-        setUrl(`${URL}${filter}${value}`)
+        setAlcoholValue(val);
         setSelectedPage(0)
 
-        console.log("URL",URL);
         console.log("url",url);
-        console.log("value",value);
+        console.log("value",alcoholValue);
     }
 
     const noneHandler = () => {
@@ -48,20 +47,16 @@ function AlcoholSlider(props) {
         setIsActiveLt(false)
     }
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
+        setUrl(`${URL}${filter}${alcoholValue}`)
         fetch(url)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw response;
-            })
+            .then(resp => resp.json()
+            )
             .then((data) => {
                 setData(data);
                 console.log(data);
+                console.log("url in fetch",url)
             })
             .catch((error) => {
                 console.error("Error fetching data: ", error);
@@ -70,7 +65,7 @@ function AlcoholSlider(props) {
             .finally(() => {
                 setLoading(false);
             });
-    }, [url, value, filter, setData]);
+    }, [URL ,url , alcoholValue, filter, setData, setLoading]);
 
     if (loading) return "Loading...";
     if (error) return "Error!";
@@ -106,8 +101,10 @@ function AlcoholSlider(props) {
                         railStyle={{ backgroundColor: 'orange'}}
                         trackStyle={{ backgroundColor: 'orange'}}
                         handleStyle={{ backgroundColor: 'orange', borderColor: "white"}}
+                        value={alcoholValue}
                         onChange={sliderHandler} className='mt-4' disabled={display === "passive"}
                         tipFormatter={value => `${value}`}
+                        step={0.1}
                         tipProps={{
                             placement: "top",
                             visible: true

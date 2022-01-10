@@ -20,6 +20,7 @@ function SrmSlider(props) {
                 handleStyle={{ backgroundColor: 'orange', borderColor: "white"}}
                 disabled={isSrmChecked} 
                 value={srmValue} 
+                step={0.1}
                 onChange={(value) => {
                     setSrmValue(value)
                     setSelectedPage(0)

@@ -8,15 +8,9 @@ function Pagination(props) {
     const { data, loading, pageCount, setPageCount, selectedPage, perPage, handlePageClick } = useContext(PaginationContext)
     const { srmValue, phValue } = useContext(CheckboxSliderContext)
     const { searchValue } = useContext(SearchContext)
-    
-    console.log(searchValue, 'value')
-    
-console.log(phValue[0], 'merve')
 
-    const filteredData = data.filter((item) =>
-        item.name.toLowerCase().includes(searchValue?.toLowerCase())
-    ).filter(item => item.srm >= srmValue).filter(item => (item.ph >= phValue[0]) && (item.ph <= phValue[1]))
-    .map(item => <div key={item.id} className="col-lg-4 col-sm-6 card-group">
+    const filteredData = data.filter((item) => item.name.toLowerCase().includes(searchValue?.toLowerCase())
+    ).filter(item => item.srm >= srmValue).filter(item => (item.ph >= phValue[0]) && (item.ph <= phValue[1])).map(item => <div key={item.id} className="col-lg-4 col-sm-6 card-group">
             <div className="card my-3 border rounded border-4 border-warning py-2 bg-light">
                 <img src={item.image_url} className="card-img-top card-img-size" alt="..." />
                 <div className="card-body ">
