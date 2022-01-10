@@ -1,10 +1,12 @@
 import React, {useContext} from 'react'
-import SliderComponent from 'rc-slider';
+import Slider, {createSliderWithTooltip} from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import {CheckboxSliderContext} from '../context/CheckboxSliderContext'
 import { PaginationContext } from '../context/PaginationContext';
 
-function Slider(props) {
+const SliderComponent = createSliderWithTooltip(Slider);
+
+function SrmSlider(props) {
 
     
     const {isChecked, srmValue, setSrmValue} = useContext(CheckboxSliderContext)
@@ -12,7 +14,6 @@ function Slider(props) {
 
 
     return (
-        <div className='col-8 text-light ms-3'>
             <SliderComponent 
                 railStyle={{ backgroundColor: 'orange'}}
                 trackStyle={{ backgroundColor: 'orange'}}
@@ -22,9 +23,18 @@ function Slider(props) {
                 onChange={(value) => {
                     setSrmValue(value)
                     setSelectedPage(0)
-                    }} />
-        </div>
+                    }} 
+                tipFormatter={value => `${value}`}
+                tipProps={{
+                        placement: "top",
+                        visible: true
+                    }}
+                marks={{
+                        0: `0`,
+                        100: `100`
+                      }}
+                />
     )
 }
 
-export default Slider
+export default SrmSlider
