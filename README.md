@@ -12,7 +12,7 @@ Tools and Technologies:
 
 Contributers: 
 - [İmran Çağla Eyüboğlu](https://github.com/imcagla)
-- [İrem Sayar](https://github.com/imcagla)
+- [İrem Sayar](https://github.com/iremsayar)
 - [Merve Özer](https://github.com/merveozer1)
 
 # Getting Started with Create React App
