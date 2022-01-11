@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate'
 import { CheckboxSliderContext } from '../context/CheckboxSliderContext'
 import { PaginationContext } from "../context/PaginationContext"
 import { SearchContext } from '../context/SearchContext'
+import "../App.css"
 
 function Pagination(props) {
     const { data, loading, pageCount, setPageCount, selectedPage, perPage, handlePageClick } = useContext(PaginationContext)
@@ -13,11 +14,10 @@ function Pagination(props) {
     const filteredData = data.filter((item) => item.name.toLowerCase().includes(searchValue?.toLowerCase())
     ).filter(item => item.srm >= srmValue).filter(item => (item.ph >= phValue[0]) && (item.ph <= phValue[1])).map(item => <div key={item.id} className="col-lg-4 col-sm-6 card-group">
             <div className="card my-3 border rounded border-4 border-warning py-2 bg-light">
-                <img src={item.image_url} className="card-img-top card-img-size" alt="..." />
+                <Link to={`${item.id}`} ><img src={item.image_url} className="card-img-top card-img-size" alt={item.name} /></Link>
                 <div className="card-body ">
-                    <h5 className="card-title">{item.name}</h5>
+                    <Link className="text-decoration-none title-hover" to={`${item.id}`} ><h5 className="card-title">{item.name}</h5></Link>
                     <p className="card-text">First Brewed In: {item.first_brewed}</p>
-                    <Link to={`${item.id}`} className="btn-warning btn">Beer Detail</Link>
                 </div>
             </div>
         </div>)

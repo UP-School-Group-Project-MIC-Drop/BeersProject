@@ -3,3 +3,11 @@
     width: 100%;
     object-fit:contain;
 }
+
+.title-hover{
+    color: black
+}
+
+.title-hover:hover{
+    color: orange !important;
+}
