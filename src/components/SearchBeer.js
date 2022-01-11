@@ -1,21 +1,13 @@
 import React, { useContext } from 'react';
-// import { useState, useEffect } from "react";
-// import { useLocation, useNavigate } from "react-router-dom"
-// import { PaginationContext } from '../context/PaginationContext';
-import { SearchContext} from '../context/SearchContext'
 import { useDebounce } from "rooks";
+import { SearchContext} from '../context/SearchContext'
+
 
 
 function SearchBeer(props) {
-    // const location = useLocation();
-    // const navigate = useNavigate();
-    // const urlParams = new URLSearchParams(location.search);
-    
-// const {data} = useContext(PaginationContext)
     const {searchValue, resetHandler,setSearchValue} = useContext(SearchContext)
     const setValueDebounced = useDebounce(setSearchValue, 300);
    
-        // navigate(`/search-beer?q=${event.target.qInput.value}`)
         function formHandler(event) {
         setValueDebounced(event.target.value)
         }

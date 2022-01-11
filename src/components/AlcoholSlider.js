@@ -1,9 +1,9 @@
 import React, { useContext} from 'react';
-import 'rc-slider/assets/index.css';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import { TiBeer } from "react-icons/ti";
 import {AlcoholSliderContext} from '../context/AlcoholSliderContext'
 import { PaginationContext } from '../context/PaginationContext';
+import 'rc-slider/assets/index.css';
 
 const SliderComponent = createSliderWithTooltip(Slider);
 
@@ -11,7 +11,6 @@ function AlcoholSlider(props) {
     const {loading} = useContext(PaginationContext)
 
     const {alcoholValue,display, isActiveGt, isActiveLt, error, sliderHandler, lowerHandler, greaterHandler, noneHandler} = useContext(AlcoholSliderContext)
-    console.log("alcoholValue",alcoholValue);
 
     
     if (loading) return "Loading...";

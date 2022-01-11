@@ -1,6 +1,6 @@
+import React, {  useContext } from "react";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import React, {  useContext } from "react";
 import { CheckboxSliderContext } from '../context/CheckboxSliderContext';
 import { PaginationContext } from '../context/PaginationContext';
 

@@ -22,9 +22,7 @@ function AlcoholSliderContextProvider(props) {
             .then(resp => resp.json()
             )
             .then((data) => {
-                console.log("url in fetch", url)
                 setData(data);
-                console.log(data);
             })
             .catch((error) => {
                 console.error("Error fetching data: ", error);
