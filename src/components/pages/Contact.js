@@ -4,7 +4,7 @@ function Contact(props) {
   return (
     <div className="container">
         <div className='row'>
-            <div className="card-group col-md-4 py-5 mb-3 text-center my-5">
+            <div className="card-group col-md-4 py-md-5 mb-3 text-center my-5">
                 <div className="card text-white bg-dark border-warning mb-3 border rounded border-4 border-warning py-3">
                 <div className="card-body ">
                     <h5 className="card-title ">Merve Özer</h5>
@@ -41,7 +41,7 @@ function Contact(props) {
                 </div>
                 </div>
             </div>
-            <div className="card-group col-md-4 py-5 mb-3 text-center my-5">
+            <div className="card-group col-md-4 py-md-5 mb-3 text-center my-5">
                 <div className="card text-white bg-dark border-warning mb-3 border rounded border-4 border-warning py-3">
                 <div className="card-body">
                     <h5 className="card-title">İmran Çağla Eyüboğlu</h5>
@@ -79,7 +79,7 @@ function Contact(props) {
                 </div>
                 </div>
             </div>
-            <div className="card-group col-md-4 py-5 mb-3 text-center my-5">
+            <div className="card-group col-md-4 py-md-5 mb-3 text-center my-5">
                 <div className="card text-white bg-dark border-warning mb-3 border rounded border-4 border-warning py-3">
                 <div className="card-body">
                     <h5 className="card-title">İrem Sayar</h5>
