@@ -9,7 +9,7 @@ function SearchContextProvider(props) {
     const [searchValue, setSearchValue] = useState('')
 
     const {noneHandler, setAlcoholValue} = useContext(AlcoholSliderContext)
-    const {setIsPhChecked, setIsSrmChecked, setSrmValue, setPhValue, isPhChecked, isSrmChecked} = useContext(CheckboxSliderContext)
+    const {setIsPhChecked, setIsSrmChecked, setSrmValue, setPhValue} = useContext(CheckboxSliderContext)
 
     function resetHandler() {
         document.getElementById("search").value=""
