@@ -3,6 +3,7 @@ import Home from "./components/Home"
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Navbar from "./components/base/Navbar"
+import Detail from "./components/pages/Detail";
 
 import {PaginationContextProvider} from "./context/PaginationContext";
 
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="/:beerId" element={<Detail />} />
       </Routes>
     </PaginationContextProvider>
     

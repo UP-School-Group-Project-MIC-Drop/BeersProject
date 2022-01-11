@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
 import { CheckboxSliderContext } from '../context/CheckboxSliderContext'
 import { PaginationContext } from "../context/PaginationContext"
@@ -16,6 +17,7 @@ function Pagination(props) {
                 <div className="card-body ">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">First Brewed In: {item.first_brewed}</p>
+                    <Link to={`${item.id}`} className="btn-warning btn">Beer Detail</Link>
                 </div>
             </div>
         </div>)
