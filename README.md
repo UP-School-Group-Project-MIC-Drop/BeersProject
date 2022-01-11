@@ -11,9 +11,9 @@ Tools and Technologies:
 - Bootstrap
 
 Contributers: 
-- [İmran Çağla Eyüboğlu](github.com/imcagla)
-- [İrem Sayar](github.com/imcagla)
-- [Merve Özer](github.com/merveozer1)
+- [İmran Çağla Eyüboğlu](https://github.com/imcagla)
+- [İrem Sayar](https://github.com/imcagla)
+- [Merve Özer](https://github.com/merveozer1)
 
 # Getting Started with Create React App
 
