@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import { PaginationContext } from '../../context/PaginationContext';
 import {BiRightArrow} from "react-icons/bi"
 function Detail() {
     const params = useParams();
@@ -12,7 +11,7 @@ function Detail() {
         fetch(`https://api.punkapi.com/v2/beers/${params.beerId}`)
             .then(resp => resp.json())
             .then(json => setBeer(json))
-    }, [])
+    }, [params.beerId])
 
 
     return (
