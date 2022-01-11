@@ -3,9 +3,9 @@ import React from 'react'
 function About() {
     return (
         <div className='container'>
-            <div className="border border-4 border-warning mt-5 bg-dark">
+            <div className="border border-4 border-warning my-5 bg-dark">
                 <div className="display-4 text-white text-center">Hello Visitor! </div>
-                <div className="text-white text-center fs-4">
+                <div className="text-white text-center fs-5">
                     
                 <p>This web page is one of our UP School project that we completed as a group.</p>
                     <p>We want to tell you what we do and what you can do on this web page.</p>
