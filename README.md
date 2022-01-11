@@ -1,3 +1,20 @@
+# Beers Project 
+This web page is one of our UP School project that we completed as a group.
+Check out the API and documentation we used for this assignment below.  
+[Click to see beers API](https://api.punkapi.com/v2/beers)  
+[Click to see API Documentation](https://punkapi.com/documentation/v2)  
+[Click for deployed project](https://determined-neumann-13fb40.netlify.app)
+
+Tools and Technologies: 
+- React
+- HTML, CSS, JS
+- Bootstrap
+
+Contributers: 
+- [İmran Çağla Eyüboğlu](github.com/imcagla)
+- [İrem Sayar](github.com/imcagla)
+- [Merve Özer](github.com/merveozer1)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
